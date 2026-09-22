@@ -1,24 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+export const Route = createFileRoute("/")({ component: Index });
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+ const wa="https://wa.me/5561999372096";
+ const aula=wa+"?text="+encodeURIComponent("Olá, Adriano! Conheci seu portfólio e gostaria de receber informações sobre suas aulas e oficinas de cerâmica.");
+ const encomenda=wa+"?text="+encodeURIComponent("Olá, Adriano! Conheci seu portfólio e gostaria de conversar sobre uma peça ou encomenda personalizada.");
+ return <main className="portfolio">
+ <header><a className="logo" href="#inicio"><b>Adriano Felipe</b><span>Cerâmica Autoral</span></a><nav><a href="#artista">O artista</a><a href="#processo">Processo</a><a href="#obras">Obras</a><a href="#aulas">Aulas e oficinas</a><a href="#contato">Contato</a><a className="btn" href={encomenda}>Solicitar encomenda</a></nav></header>
+ <section id="inicio" className="hero"><div className="art-placeholder"><div className="clay-form"/></div><div><small>PROFESSOR DE CERÂMICA · CERAMISTA · ARTISTA MANUAL</small><h1>Cerâmica que <em>atravessa o tempo.</em></h1><p>Adriano Felipe dos Santos transforma terra, gesto e fogo em peças únicas, criadas para serem contempladas, utilizadas e vividas.</p><div className="actions"><a className="btn" href="#obras">Conhecer o portfólio</a><a href={wa}>Falar com Adriano ↗</a></div></div></section>
+ <section id="artista" className="paper"><div className="number">01 / O ARTISTA</div><div className="split"><div><h2>Entre o gesto e a <em>matéria</em></h2><p>Adriano Felipe dos Santos é professor de cerâmica e ceramista. Seu trabalho nasce da relação entre as mãos, a argila, o torno e o tempo. Cada criação carrega as marcas naturais do processo manual, transformando pequenas diferenças em identidade, beleza e exclusividade.</p><p>Além da produção de peças autorais, Adriano compartilha seus conhecimentos por meio de aulas, oficinas e experiências com a cerâmica, aproximando diferentes pessoas desse universo artístico.</p></div><blockquote>“Nenhuma peça se repete. Cada forma guarda o instante em que foi criada.”</blockquote></div></section>
+ <section id="processo" className="dark"><div className="number">02 / PROCESSO</div><h2>Da matéria bruta à <em>peça única</em></h2><div className="steps"><article><b>01</b><h3>Preparar</h3><p>A argila é escolhida e preparada para receber forma, movimento e intenção.</p></article><article><b>02</b><h3>Modelar</h3><p>No torno ou por meio da modelagem manual, cada peça é construída com técnica, sensibilidade e precisão.</p></article><article><b>03</b><h3>Transformar</h3><p>A secagem, o acabamento, a esmaltação e o fogo revelam novas cores, texturas e características.</p></article></div></section>
+ <section id="obras" className="paper"><div className="number">03 / OBRAS</div><h2>Peças que contam <em>histórias</em></h2><p>Cerâmica utilitária · Vasos e formas orgânicas · Peças decorativas · Esculturas · Trabalhos experimentais · Obras em processo.</p><div className="gallery">{["Forma orgânica","Café em verde","Textura mineral","Máscara","Forma em nascimento","Dupla essencial"].map((x,i)=><figure key={x}><div className={"piece p"+i}/><figcaption>0{i+1} — {x}</figcaption></figure>)}</div><p className="note">Espaços preparados para receber somente as fotografias reais do Adriano.</p></section>
+ <section id="aulas" className="terra"><div className="number">04 / AULAS & OFICINAS</div><div className="split"><div><h2>Cerâmica também é <em>encontro</em></h2><p>O ateliê é um espaço de descoberta, convivência e aprendizado. Nas aulas e oficinas, Adriano conduz os participantes pelo contato com a argila, apresentando técnicas de modelagem e incentivando a liberdade criativa de cada pessoa.</p><a className="btn pale" href={aula}>Quero saber sobre as aulas</a></div><ul>{["Aulas de cerâmica","Oficinas práticas","Experiências para iniciantes","Atividades individuais ou em grupo","Vivências artísticas","Projetos e parcerias"].map(x=><li key={x}>↗ {x}</li>)}</ul></div></section>
+ <section className="paper center"><div className="number">05 / ENCOMENDAS</div><h2>Uma peça criada <em>especialmente para você</em></h2><p>Para quem procura uma criação única, Adriano também desenvolve peças autorais, encomendas personalizadas, projetos artísticos e possíveis colaborações.</p><a className="btn" href={encomenda}>Conversar sobre uma encomenda</a></section>
+ <section id="contato" className="contact"><div className="number">06 / CONTATO</div><h2>Vamos criar algo <em>com significado?</em></h2><p>Entre em contato para conhecer as peças disponíveis, conversar sobre encomendas, aulas, oficinas ou propor uma colaboração artística.</p><div className="links"><a href={wa}>WhatsApp <b>(61) 99937-2096 ↗</b></a><a href="https://www.instagram.com/adrianolecoleco/">Instagram <b>@adrianolecoleco ↗</b></a></div></section>
+ <footer><b>Adriano Felipe dos Santos</b><span>Professor de Cerâmica · Ceramista</span><em>Cerâmica autoral feita à mão.</em><small>© 2026 Adriano Felipe dos Santos. Todos os direitos reservados.</small></footer>
+ </main>
 }
